@@ -8,16 +8,36 @@ import org.zkoss.zk.ui.Execution;
 
 import AbstractModules.CAbstractModuleAnonymousDesktop;
 import AbstractModules.CModuleDependencies;
+import AbstractModules.CUIAbstractModule;
 
 public class CLoginModule extends CAbstractModuleAnonymousDesktop {
 
 	@Override
-	public String getModuleName() {
+	public String getModuleName( String strLanguageName ) {
+
+		String strModuleName =  "Security login window";
+		
+		if ( strLanguageName != null ) {
+		
+			if ( strLanguageName.equals( "es" ) ) {
+
+				strModuleName =  "Ventana de inicio de sesion";
+
+			}
+		
+		}
+		
+		return strModuleName;
+		
+	}
+
+	@Override
+	public String getModuleInternalName() {
 
 		return "Security.Login";
 		
 	}
-
+	
 	@Override
 	public String getModuleNameGUID() {
 
@@ -102,7 +122,49 @@ public class CLoginModule extends CAbstractModuleAnonymousDesktop {
 
 	public static void main(String[] args) {
 
+		CUIAbstractModule Module = new CLoginModule();
 		
+		System.out.println( "Module name:" + Module.getModuleName( null ) );
+		System.out.println( "Module internal name: " + Module.getModuleInternalName() );
+		System.out.println( "Module name GUID: " + Module.getModuleNameGUID() );
+		System.out.println( "Module version: " + Module.getModuleVersion() );
+		System.out.println( "Module description: " + Module.getModuleDescription( null ) );
+		System.out.println( "-------" );
+		System.out.println( "Dependencies:" );
+
+		ArrayList<CModuleDependencies> ModuleDependencies = Module.getModuleDependencies();
+		
+		for ( int I=0; I < ModuleDependencies.size(); I++ ) {
+			
+			System.out.println( "Module name: " + ModuleDependencies.get( I ).strModuleName );
+			System.out.println( "Module name GUID: " + ModuleDependencies.get( I ).strModuleNameGUID );
+			System.out.println( "Module minimal version: " + ModuleDependencies.get( I ).strMinimalVersion );
+			System.out.println( "Module miximal version: " + ModuleDependencies.get( I ).strMaximalVersion );
+			System.out.println( "-------" );
+			System.out.println( "Only this versions:" );
+			
+			ArrayList<String> strOnlyThisVersions = ModuleDependencies.get( I ).strOnlyThisVersions;
+			
+			for ( int J=0; J < strOnlyThisVersions.size(); J++ ) {   
+			
+			    System.out.println( "Version: " + strOnlyThisVersions.get( J ) );
+			
+			}
+		}
+		
+		System.out.println( "-------" );
+		System.out.println( "Icons path:" );
+
+		String strIconSizes[] = { "16x16", "24x24", "32x32", "64x64" };
+		
+		//16x16 24x24 32x32 64x64
+		for ( int I=0; I < strIconSizes.length; I++ ) {
+		
+			System.out.println( "Icon size: " + strIconSizes[ I ] );
+			System.out.println( "Icon path: " + Module.getIconPath( strIconSizes[ I ] ) );
+			
+			
+		}
 		
 	}
 
