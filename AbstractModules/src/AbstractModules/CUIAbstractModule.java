@@ -19,12 +19,12 @@ public abstract class CUIAbstractModule implements IAbstractModule {
 	
     public abstract Component getUIComponents( Execution CurrentExecution, Component Parent, @SuppressWarnings("rawtypes") HashMap Args );
 
-    public abstract String getMainIconPath( String strIconSize );
-    
     public abstract DesktopPosition getDesktopPosition();
     
-    public abstract String getTranslateLabel( String strLabel );
+    public abstract String Translate( String strMessage );
     
-    public abstract String getImagePath( String strIconName );
+    public abstract String getMainIconPath( String strIconSize );
+    
+    public abstract String getImagePath( String strImageName );
     
 }
