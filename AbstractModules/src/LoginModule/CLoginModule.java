@@ -6,11 +6,11 @@ import java.util.HashMap;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Execution;
 
-import AbstractModules.CAbstractModuleAnonymousDesktop;
+import AbstractModules.CUIAbstractModuleAnonymousDesktop;
 import AbstractModules.CModuleDependencies;
 import AbstractModules.CUIAbstractModule;
 
-public class CLoginModule extends CAbstractModuleAnonymousDesktop {
+public class CLoginModule extends CUIAbstractModuleAnonymousDesktop {
 
 	@Override
 	public String getModuleName( String strLanguageName ) {
