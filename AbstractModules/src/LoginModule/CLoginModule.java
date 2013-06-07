@@ -81,9 +81,22 @@ public class CLoginModule extends CUIAbstractModuleAnonymousDesktop {
 	}
 
 	@Override
-	public String getIconPath( String strSize ) {
+	public String getIconPath( String strIconSize ) {
 
-		return null;
+		String strIconPath = "";
+		
+		switch ( strIconSize ) {
+			
+		    case "16x16":{ strIconPath = "~./LoginModule/icons/16x16.png"; break; }
+		    case "24x24":{ strIconPath = "~./LoginModule/icons/24x24.png"; break; }
+		    case "32x32":{ strIconPath = "~./LoginModule/icons/32x32.png"; break; }
+		    case "48x48":{ strIconPath = "~./LoginModule/icons/48x48.png"; break; }
+		    case "64x64":{ strIconPath = "~./LoginModule/icons/64x64.png"; break; }
+		    case "128x128":{ strIconPath = "~./LoginModule/icons/128x128.png"; break; }
+			
+		}
+		
+		return strIconPath;
 		
 	}
 
