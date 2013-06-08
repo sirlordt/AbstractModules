@@ -10,6 +10,8 @@ public interface IAbstractModule {
     public String getModuleDescription();
     public String getModuleVersion();
 
+    public abstract String Translate( String strMessage );
+    
     public ArrayList<CModuleDependencies> getModuleDependencies();
     
     public int InitModule();    
